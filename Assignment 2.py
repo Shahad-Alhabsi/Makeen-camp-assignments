@@ -82,14 +82,17 @@ print(out[:len(out)-2]) # -2 becaouse we don't want the "|" and the spaces at th
 """
 6) write a loop that counts how many elements in a list is equal to zero.
 """
+def countZero(lst):
+    count = 0
+    for i in lst:
+        if i == 0:
+            count += 1
+    return count
+
 try:
     elements = input("Enter numbers to form a list: ")
     List = [float(i) for i in elements.split()]
-    count = 0
-    for i in List:
-        if i == 0:
-            count += 1
-    print(count)
+    print("In the list there are ",countZero(List), " elements equal to zero")
 except:
     print("Invalisd input")
 
@@ -130,13 +133,13 @@ print(a[4:])
 """
 b = "Hello World"
 a = list(b)
-print(a) # a list of the characters of the string b --> ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
-print(len(a)) # --> 11 elements
-print(a[1:11]) # --> without the first element (a[0]) --> ['e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
-print(a[-2,-5,-1]) # Error: we shoud use the ":" for slicing not ","
-print(a[::2]) # jump 2 places in the list (print one and leave one)--> ['H', 'l', 'o', 'W', 'r', 'd']
-print(a[:4]) # fron index 0 to 3 (first 4 elements) --> ['H', 'e', 'l', 'l']
-print(a[4:]) # from the element in index 4 to the end of the list --> ['o', ' ', 'W', 'o', 'r', 'l', 'd']
+# print(a)  a list of the characters of the string b --> ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
+# print(len(a))  --> 11 elements
+# print(a[1:11])  --> without the first element (a[0]) --> ['e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
+# # print(a[-2,-5,-1]) -->  Error: we shoud use the ":" for slicing not ","
+# print(a[::2]) -->  jump 2 places in the list (print one and leave one)--> ['H', 'l', 'o', 'W', 'r', 'd']
+# print(a[:4])  --> fron index 0 to 3 (first 4 elements) --> ['H', 'e', 'l', 'l']
+# print(a[4:]) --> from the element in index 4 to the end of the list --> ['o', ' ', 'W', 'o', 'r', 'l', 'd']
 
 
 """
@@ -144,26 +147,21 @@ print(a[4:]) # from the element in index 4 to the end of the list --> ['o', ' ',
 list of words.
 Hint: take n from user
 """
+def check_words(lst, n):
+        out_list = []
+        for i in lst:
+            if len(i) > n:
+                out_list.append(i)
+        return out_list
+        
+
 try:
     n = int(input("Enter n: "))
     words = input("Enter words separated by a aspace to form a list ")
     list_of_words = [i for i in words.split()]
-    out_list = []
-    for i in list_of_words:
-        if len(i) > n:
-            out_list.append(i)
-
-    print(out_list)
-    
+    print("list of words that are longer than ", n, " --> ",check_words(list_of_words, n))
 except:
     print("Invalid input")
     
-
-        
          
          
-
-
-
-
-
